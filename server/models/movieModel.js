@@ -1,10 +1,17 @@
-//Select one db to work with:
-
-//For SQL
+const { Db } = require('mongodb');
 const sqlDb = require('../../db/sql');
-//For Mongo
-const mongoDb = require('../../db/mongodb')
+
 
 module.exports = {
+  get: function(callback) {
+    const getQuery = 'SELECT * FROM movies;'
+    sqlDb.query(getQuery, (err, results) => {
+      if (err) {
+        console.log('Error with GET Model: ', err)
+      } else {
+        callback(results);
+      }
+    })
+  }
 
 }

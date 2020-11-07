@@ -1,1 +1,13 @@
 -- SET UP SCHEMA HERE
+
+CREATE DATABASE IF NOT EXISTS badmovies;
+
+USE badmovies;
+
+CREATE TABLE movies (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(30) NOT NULL,
+  url VARCHAR(50) NOT NULL,
+  year VARCHAR(10) NOT NULL,
+  rating INT
+);
