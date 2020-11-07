@@ -16,10 +16,6 @@ module.exports = {
     .then((response) => {res.status(200).send(response.data)})
     .catch((err) => {console.log('Failed GET (controller - getGenre) request: ', err)})
   },
-  // filterGenre: (req, res) => {
-  //   return axios.get(`${genreURL}`)
-
-  // },
   saveMovie: (req, res) => {
     
   },

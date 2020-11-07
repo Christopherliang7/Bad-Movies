@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
+// import $ from 'jquery';
 // import AnyComponent from './components/filename.jsx'
 import Search from './components/Search.jsx'
 import Movies from './components/Movies.jsx'
+import Axios from 'axios';
 
 class App extends React.Component {
   constructor(props) {
@@ -15,10 +16,18 @@ class App extends React.Component {
     };
     
     // you might have to do something important here!
+    this.getMovies = this.getMovies.bind(this)
+  }
+
+  componentsDidMount() {
+    this.getMovies();
   }
 
   getMovies() {
     // make an axios request to your server on the GET SEARCH endpoint
+    Axios.get('/search')
+    .then((response) => {console.log(response)})
+    .catch((error) => {console.log('Error with getMovies: ', error)})
   }
 
   saveMovie() {
